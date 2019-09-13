@@ -1,5 +1,4 @@
-require 'aws-sdk-ec2'
-require 'aws-sdk-autoscaling'
+require 'aws-sdk'
 require 'capistrano/all'
 require 'active_support/concern'
 
