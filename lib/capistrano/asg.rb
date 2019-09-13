@@ -43,8 +43,10 @@ def autoscale(groupname, *args)
     else
       ec2_instance = ec2_resource.instance(asg_instance.id)
       hostname = ec2_instance.private_ip_address
-      puts "Autoscaling: Adding server #{hostname}"
+      puts "Autoscaling: Adding server #{hostname} with #{args}"
       server(hostname, *args)
+      # Only set db role to first instance
+      args&.first.fetch(:roles).delete(:db)
     end
   end
 
