@@ -49,7 +49,6 @@ def autoscale(groupname, *args)
       args&.first.fetch(:roles).delete(:db)
     end
   end
-
   if asg_instances.count > 0 && fetch(:create_ami, true)
     after('deploy:finishing', 'asg:scale')
   else
