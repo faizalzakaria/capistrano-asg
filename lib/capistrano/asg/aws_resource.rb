@@ -33,6 +33,10 @@ module Capistrano
         fetch(:rails_env, 'production')
       end
 
+      def app
+        fetch(:application, '')
+      end
+
       def timestamp(str)
         "#{str}-#{Time.now.utc.to_i}"
       end
