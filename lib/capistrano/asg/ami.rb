@@ -15,8 +15,8 @@ module Capistrano
       end
 
       def save
-        info "Creating EC2 AMI from EC2 Instance: #{base_ec2_instance.id}"
-        ec2_instance = ec2_resource.instance(base_ec2_instance.id)
+        info "Creating EC2 AMI from EC2 Instance: #{base_ec2_instance_id}"
+        ec2_instance = ec2_resource.instance(base_ec2_instance_id)
         @aws_counterpart = ec2_instance.create_image(
           name: name,
           no_reboot: fetch(:aws_no_reboot_on_create_ami, true)

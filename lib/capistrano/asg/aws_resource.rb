@@ -25,6 +25,10 @@ module Capistrano
         autoscaling_group.instances.first
       end
 
+      def base_ec2_instance_id
+        fetch(:base_ec2_instance_id, base_ec2_instance.id)
+      end
+
       def environment
         fetch(:rails_env, 'production')
       end
